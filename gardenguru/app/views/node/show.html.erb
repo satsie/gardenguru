@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Garden Guru Node</title>
+	<link rel="stylesheet" type="text/css" href="index.css"/>
+</head>
+
+<body>
+	<center>
+		<br><br>
+		<img src="/images/logo_unna.png" />
+		<br><br>
+	</center>
+	<div class="main">
+		<h3>All about <%= @node.props[:name] %></h1>
+		<div class="row">
+			<% @node.props.each { |key,prop| %>
+				<br><%= key.capitalize %>: <%= prop %>
+			<% } %>
+		<!-- <%= @node.props[:description] %> -->
+		</div>
+	</div>
+
+	<!-- TODO: LINK BACK TO INDEX -->
+</body>
+</html>

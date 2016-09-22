@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Garden Guru</title>
+	<link rel="stylesheet" type="text/css" href="index.css"/>
+    <%= javascript_include_tag 'application' %>
+	<!-- Latest compiled and minified CSS Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Rails authenticity token -->
+	<%= csrf_meta_tag %>
+</head>
+
+<body>
+	<center>
+		<br><br>
+		<img src="/images/logo_unna.png" />
+		<br><br>
+	</center>
+	<div class="main">
+		<center>
+			<div class="container">
+				<div class="jumbotron">
+					<div class="plantrow">
+						<ul id="list1" class="to-plant">
+						<% @plants.each do |p| %>
+							<li id=<%= p.props[:name] %>> <!-- set the id for each item to be the name of the plant -->
+								<%= link_to image_tag("icons/" + p.props[:name].downcase + ".png", :title => p.props[:name], :height => "48", :width => "48", :class => "gg-icon"), nodepage_path(p.props[:name]
+							) %>
+							</li>
+						<% end %>
+						</ul>
+					</div>
+				</div>
+
+				<center>Drag the items you would like to plant into the area below</center>
+				<br><br>
+				<div class="jumbotron">
+					<ul id="list2" class="to-plant">
+						<!-- <li>hello</li>
+						<li>hi</li> -->
+					</ul>
+				</div>
+
+				<button type="button" class="btn btn-primary" id="submit-button">Plant!</button>
+
+			</div>
+
+		</center>
+	</div>
+</body>
+</html>
